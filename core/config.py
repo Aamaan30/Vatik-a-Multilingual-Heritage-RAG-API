@@ -4,9 +4,9 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     PROJECT_NAME: str = "Vatik API"
-    DATABASE_URL: str = "postgresql+asyncpg://vatik_user:vatik_password@localhost:5432/vatik_db"
+    DATABASE_URL: str = os.getenv("DATABASE_URL")
     # GROQ_API_KEY: str = ""
-    GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+    GROQ_API_KEY: str = os.getenv("GROQ_API_KEY")
     class Config:
         env_file = ".env"
 
